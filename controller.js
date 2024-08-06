@@ -1,4 +1,4 @@
-import { Model } from "./Model";
+import { Model } from "./model";
 import { View } from "./view";
 
 class MainController{
@@ -8,4 +8,4 @@ class MainController{
     }
 }
 
-const app = new MainController(new Model(), new View());
+const app = new MainController(new Model, new View());

@@ -1,14 +1,15 @@
 export class FileUploadController{
-    constructor(view){
+    constructor(view, model){
         this.view = view;
-        this.view.bindFileUpload(this.handleFileUpload)
+        this.model = model;
+        this.view.bindFileUpload(this.handleFileUpload);
     }
 
     getFileInput(){
         return this.view.fileInput;
     }
 
-    handleFileUpload(file){
-        console.log(file);
+    handleFileUpload = (file) =>{
+        this.model.readFile(file);
     }
 }
