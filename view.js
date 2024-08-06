@@ -1,12 +1,11 @@
-import { FileInputController } from "./components/fileUpload/controller";
-import { FileInputView } from "./components/fileUpload/view";
+import { FileUploadController } from "./components/fileUpload/fileUploadController";
+import { FileUploadView } from "./components/fileUpload/fileUploadView";
 
 export class View{
     constructor(){
         const app = document.getElementById("app");
-        const inputFile = new FileInputController(new FileInputView());
+        const inputFile = new FileUploadController(new FileUploadView());
 
-        console.log(FileInputController.getFileInput());
         app.appendChild(inputFile.getFileInput());
     }
 }

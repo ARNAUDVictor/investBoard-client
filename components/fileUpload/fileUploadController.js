@@ -1,4 +1,4 @@
-export class FileInputController{
+export class FileUploadController{
     constructor(view){
         this.view = view;
     }

@@ -1,4 +1,4 @@
-export class FileInputView{
+export class FileUploadView{
    constructor() {
     this.fileInput = this.createElement();
    } 
@@ -7,6 +7,6 @@ export class FileInputView{
         const element = document.createElement("input");
         element.type="file";
 
-        return Element;
+        return element;
     }
 }
