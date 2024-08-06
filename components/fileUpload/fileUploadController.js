@@ -10,6 +10,6 @@ export class FileUploadController{
     }
 
     handleFileUpload = (file) =>{
-        this.model.readFile(file);
+        this.model.readFile2(file);
     }
 }

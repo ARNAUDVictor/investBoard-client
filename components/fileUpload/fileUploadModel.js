@@ -4,15 +4,33 @@ export class FileUploadModel{
     }
 
     readFile(file){
-        console.log(file);
         if(file){
             const reader = new FileReader();
-            reader.addEventListener("loadend", function(){
+            reader.onload = function(e){
+                const text = e.target.result;
+                console.log(text);
+                this.parseCSV(text);
+            };
+            reader.readAsText(file);  
+        }
+    }
+    readFile2(file){
+        if(file){
+            const reader = new FileReader();
+            let text = "";
+            reader.addEventListener("load", function () {
                 console.log(reader.result);
+                text = reader.result;
+                console.log(text);
+                this.parseCSV(text);
             });
             reader.readAsText(file);
-            console.log(reader.result);
         }
+    }
 
+    parseCSV(text){
+        const lines = text.split('\n');
+        
+        console.log(lines);
     }
 }
