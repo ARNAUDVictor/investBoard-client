@@ -1,27 +1,13 @@
 export class FileUploadModel{
     constructor(){
-        this.fileContent = [];
+        this.CSVData = [];
     }
 
-    readFile(file){
-        if(file){
-            const reader = new FileReader();
-            reader.onload = function(e){
-                const text = e.target.result;
-                console.log(text);
-                this.parseCSV(text);
-            };
-            reader.readAsText(file);  
-        }
-    }
     readFile2(file){
         if(file){
             const reader = new FileReader();
-            let text = "";
-            reader.addEventListener("load", function () {
-                console.log(reader.result);
-                text = reader.result;
-                console.log(text);
+            reader.addEventListener("load", (event) => {
+                const text = reader.result;
                 this.parseCSV(text);
             });
             reader.readAsText(file);
@@ -30,7 +16,11 @@ export class FileUploadModel{
 
     parseCSV(text){
         const lines = text.split('\n');
-        
-        console.log(lines);
+        const header = lines[0];
+        let processedData = [];
+        lines.forEach(element => {
+            processedData.push(element.split(";"));
+        });
+        console.log(processedData);
     }
 }
