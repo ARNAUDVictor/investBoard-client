@@ -13,7 +13,7 @@ export class FileUploadView{
     bindFileUpload(handler) {
         this.fileInput.addEventListener("change", event => {
 
-            handler(this.fileInput.files[0])
+            handler(this.fileInput.files[0]);
         })
     }
 

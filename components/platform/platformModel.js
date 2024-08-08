@@ -1,0 +1,7 @@
+export class PlatformModel{
+    constructor(){
+       
+    }
+
+    
+}

@@ -1,14 +1,19 @@
 export class FileUploadModel{
     constructor(){
         this.CSVData = [];
+        this.dataReadyCallback = null;
     }
 
-    readFile2(file){
+    bindDataReady(callback){
+        this.dataReadyCallback = callback;
+    }
+
+    readFile(file){
         if(file){
             const reader = new FileReader();
             reader.addEventListener("load", (event) => {
-                const text = reader.result;
-                this.parseCSV(text);
+                this.CSVData = reader.result;
+                this.dataReady()
             });
             reader.readAsText(file);
         }
@@ -21,6 +26,12 @@ export class FileUploadModel{
         lines.forEach(element => {
             processedData.push(element.split(";"));
         });
-        console.log(processedData);
     }
+
+    dataReady() {
+        if(this.dataReadyCallback){
+            this.dataReadyCallback("dataParsed", this.CSVData);
+        }
+    }
+    
 }
