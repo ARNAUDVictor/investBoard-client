@@ -12,7 +12,7 @@ export class FileUploadModel{
         if(file){
             const reader = new FileReader();
             reader.addEventListener("load", (event) => {
-                this.CSVData = reader.result;
+                this.CSVData = this.parseCSV(reader.result);
                 this.dataReady()
             });
             reader.readAsText(file);
@@ -26,6 +26,7 @@ export class FileUploadModel{
         lines.forEach(element => {
             processedData.push(element.split(";"));
         });
+        return processedData;
     }
 
     dataReady() {

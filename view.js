@@ -2,7 +2,7 @@ import { FileUploadController } from "./components/fileUpload/fileUploadControll
 import { FileUploadView } from "./components/fileUpload/fileUploadView";
 import { FileUploadModel } from "./components/fileUpload/fileUploadModel";
 
-export class View{
+export class MainView{
     constructor(){
         const app = document.getElementById("app");
         const inputFile = new FileUploadController(new FileUploadView(), new FileUploadModel());

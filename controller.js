@@ -1,11 +1,11 @@
-import { Model } from "./model";
-import { View } from "./view";
+import { PlatformController } from "./components/platform/platformController";
+import { PlatformModel } from "./components/platform/platformModel";
+import { PlatformView } from "./components/platform/platformView";
 
-class MainController{
+export class MainController{
     constructor(model, view){
         this.model = model;
         this.view = view;
+        this.platform = new PlatformController(new PlatformView(), new PlatformModel());
     }
 }
-
-const app = new MainController(new Model, new View());
