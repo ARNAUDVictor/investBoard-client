@@ -2,7 +2,8 @@ export class ListTransactionModel {
     constructor(){
         this.listTransaction = [];
         this.header = ["Opération", "N°Contrat", "Projet", "Date", "Montant", "Remarques", 
-                        "Capital remboursé","Intérêts remboursés", "Prélèvements fiscaux et sociaux"]
+                        "Capital remboursé","Intérêts remboursés", "Prélèvements fiscaux et sociaux"];
+        this.dataReadyCallback = null;
     }
 
     processedNewTransaction(transactionsList){
@@ -13,9 +14,11 @@ export class ListTransactionModel {
             }
             this.listTransaction.push(tempLigne);
         });
-        console.log(this.listTransaction);
+        this.dataReadyCallback(this.listTransaction);
     }
 
-    
+    bindNewTransactionReady(handler){
+        this.dataReadyCallback = handler;
+    }
      
 }
