@@ -3,6 +3,7 @@ export class ListTransactionController{
         this.view = view;
         this.model = model;
         this.model.bindNewTransactionReady(this.newTransactionReadyToDisplay);
+        this.transactionTableReadyCallback = null;
     }
 
     receiveNewTransaction(transactions){
@@ -10,7 +11,13 @@ export class ListTransactionController{
     }
 
     newTransactionReadyToDisplay = (transactions) =>{
-        this.view.displayTransaction(transactions);
+        const table = this.view.displayTransaction(transactions);
+        this.transactionTableReadyCallback(table); // fait remonter la table au controller parent
         console.log("nouvelle transaction dipso.");
+    }
+
+    bindTransactionTableReady(callback){
+        this.transactionTableReadyCallback = callback;
+        console.log(this.transactionTableReadyCallback);
     }
 }

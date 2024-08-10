@@ -7,8 +7,8 @@ export class ListTransactionModel {
     }
 
     processedNewTransaction(transactionsList){
+        let tempLigne = [];
         transactionsList.forEach(ligne => {
-            let tempLigne = {};
             for(let i=0; i < ligne.length; i++){
                 tempLigne[this.header[i]] = ligne[i];
             }

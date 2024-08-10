@@ -1,9 +1,10 @@
 export class ListTransactionView{
     constructor(){
-        this.transactionTableReady = null;
+        this.transactionTableReadyCallback = null;
     }
 
     displayTransaction(transactions){
+        console.log(transactions);
         const table = document.createElement("table");
         const header = transactions[0];
         const mainData = transactions.splice(1);
@@ -11,25 +12,20 @@ export class ListTransactionView{
         mainData.forEach(row => {
             table.appendChild(this.createRow(row));
         });
-
+        return table;
     }
 
     createRow(data, header = false){
         const row = document.createElement("tr");
-        console.log(data);
         let cell = null;
-        for(let cellValue in data){
+        for(const [key, value] of Object.entries(data)){
             if(header){    
                 cell = row.appendChild(document.createElement("th"));
             }else{
                 cell = row.appendChild(document.createElement("td"));
             }
-            cell.innerText = cellValue;
+            cell.innerText = value;
         }
         return row;
-    }
-
-    bindTransactionTableReady(handler){
-        this.transactionTableReady = handler;
     }
 }

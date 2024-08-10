@@ -21,6 +21,5 @@ export class FileUploadController{
     emitEvent(name, data){
         const event = new CustomEvent(name, {detail: data});
         window.dispatchEvent(event);
-        console.log("Event emitted :", event);
     }
 }
