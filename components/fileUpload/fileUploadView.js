@@ -16,28 +16,4 @@ export class FileUploadView{
             handler(this.fileInput.files[0]);
         })
     }
-
 }
-
-
-/*
-ca marche :
-
-addListener(handler) {
-        console.log(this.fileInput);
-        this.fileInput.addEventListener("change", event => {
-
-            console.log(this.fileInput.files);
-        })
-    }
-
-ca marche pas
-addListener(handler) {
-        console.log(this.fileInput);
-        this.fileInput.addEventListener("change", function(event) {
-
-            console.log(this.fileInput.files);
-        })
-    }
-
-*/

@@ -4,9 +4,10 @@ import { FileUploadModel } from "./components/fileUpload/fileUploadModel";
 
 export class MainView{
     constructor(){
-        const app = document.getElementById("app");
-        const inputFile = new FileUploadController(new FileUploadView(), new FileUploadModel());
+    }
 
-        app.appendChild(inputFile.getFileInput());
+    displayFileInput(fileInput){
+        const app = document.getElementById("app");
+        app.appendChild(fileInput);
     }
 }
